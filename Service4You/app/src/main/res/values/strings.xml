@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Service4You</string>
+    <string name="WelcomeHu">Egyedi, Szuperkedvezményes ajánlatok hetente, csak itt az alkalmazásban!</string>
+    <string name="nextHu">Tovább</string>
+    <string name="pwHu">Jelszó</string>
+    <string name="registerTextHU">Nincs fiokod semmi probléma!</string>
+    <string name ="registerBtnHU">Regisztáció</string>
+    <string name="orHu">vagy</string>
+    <string name="weeklyDiscount">Heti Ajánlat</string>
+    <string name="historyHU">Korábbi ajánlatok</string>
+    <string name="mapsHu">Térkép</string>
+</resources>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryRed">
+
+    <EditText
+        android:id="@+id/txt_surname_reg"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="48dp"
+        android:hint="Vezetéknév"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_middlename_reg"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:hint="Keresztnév"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_surname_reg" />
+
+    <EditText
+        android:id="@+id/txt_address_reg"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:hint="Cím"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_city_reg" />
+
+    <EditText
+        android:id="@+id/txt_country_reg"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:hint="Ország"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_address_reg" />
+
+    <EditText
+        android:id="@+id/txt_city_reg"
+        android:layout_width="310dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="12dp"
+        android:hint="Település"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_postnumb_reg" />
+
+    <EditText
+        android:id="@+id/txt_postnumb_reg"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:hint="Irányítószám"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_middlename_reg" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Tovább"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rGroup" />
+
+    <RadioGroup
+        android:id="@+id/rGroup"
+        android:layout_width="227dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.794"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numb_month">
+
+        <RadioButton
+            android:id="@+id/rbtn_woman"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="Nő"
+            app:layout_constraintTop_toBottomOf="@+id/numb_month"
+            tools:layout_editor_absoluteX="236dp" />
+
+        <RadioButton
+            android:id="@+id/rbtn_man"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="88dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="Férfi"
+            app:layout_constraintEnd_toStartOf="@+id/rbtn_woman"
+            app:layout_constraintTop_toBottomOf="@+id/numb_month" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Az ön adatai a törzsvendég programunkban"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Születési dátum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_country_reg" />
+
+    <NumberPicker
+        android:id="@+id/numb_year"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/numb_month"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_country_reg" />
+
+    <NumberPicker
+        android:id="@+id/numb_month"
+        android:layout_width="57dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/numb_day"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_country_reg" />
+
+    <NumberPicker
+        android:id="@+id/numb_day"
+        android:layout_width="57dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_country_reg" />
+
+</android.support.constraint.ConstraintLayout>
