@@ -1,10 +1,15 @@
 package com.s4y.service4you.Authentication.Register;
 
+import android.app.DatePickerDialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
@@ -13,11 +18,13 @@ import android.widget.Toast;
 
 import com.s4y.service4you.R;
 
+import java.util.Date;
+
 /**
  * Created by boldi on 2018. 09. 04..
  */
 
-public class RegisterPersonalInfoActivity extends AppCompatActivity {
+public class RegisterPersonalInfoActivity extends AppCompatActivity  implements DatePickerDialog.OnDateSetListener {
 
     private EditText txtSurname;
     private EditText txtMiddlename;
@@ -25,32 +32,27 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity {
     private EditText txtCity;
     private EditText txtAddress;
 
-    private NumberPicker numbYear;
-    private NumberPicker numbMonths;
-    private NumberPicker numbDay;
-
     private RadioGroup rGroup;
     private RadioButton rbtnMan;
     private RadioButton rbtnWoman;
 
     private Button btnNext;
 
+    private Button bdButton;
+
     private String Surname;
     private String MiddleName;
     private String PostNumb;
     private String City;
-    private String Address;
-
-    private int BDYear;
-    private int BDMonth;
-    private int BDDay;
+    private String Address;;
 
     private int Man = 0;
     private int Woman = 0;
 
+    private Date dBirthday;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_personalinfo);
 
@@ -59,48 +61,50 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity {
         txtPostNumb = findViewById(R.id.txt_postnumb_reg);
         txtCity = findViewById(R.id.txt_city_reg);
         txtAddress = findViewById(R.id.txt_address_reg);
-        numbYear = findViewById(R.id.numb_year);
-        numbMonths = findViewById(R.id.numb_month);
-        numbDay = findViewById(R.id.numb_day);
         rGroup = findViewById(R.id.rGroup);
         rbtnMan = findViewById(R.id.rbtn_man);
         rbtnWoman = findViewById(R.id.rbtn_woman);
         btnNext = findViewById(R.id.btn_next);
+        bdButton = findViewById(R.id.btn_birthday);
 
-        numbYear.setMinValue(1920);
-        numbYear.setMaxValue(2000);
-
-        numbMonths.setMaxValue(12);
-        numbMonths.setMinValue(1);
-
-        numbDay.setMinValue(1);
-        numbDay.setMaxValue(31);
+        bdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final DatePickerDialog datePickerDialog = new DatePickerDialog(RegisterPersonalInfoActivity.this, RegisterPersonalInfoActivity.this, 1960, 1, 1);
+                datePickerDialog.setButton(DatePickerDialog.BUTTON_POSITIVE,"Ok", datePickerDialog);
+                datePickerDialog.show();
+                datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        dBirthday = new Date(year, month, dayOfMonth);
+                        datePickerDialog.dismiss();
+                    }
+                });
+            }
+        });
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            if ( txtSurname.getText().toString().equals("") || txtMiddlename.getText().toString().equals("") || numbYear.getValue() == 0 || numbMonths.getValue() == 0 || numbDay.getValue() == 0 ||
-                    txtPostNumb.getText().toString().equals("") || txtCity.getText().toString().equals("") || txtAddress.getText().toString().equals("") || !rGroup.isPressed() ) {
+                if (txtSurname.getText().toString().equals("") || txtMiddlename.getText().toString().equals("") ||
+                        txtPostNumb.getText().toString().equals("") || txtCity.getText().toString().equals("") || txtAddress.getText().toString().equals("") || !rGroup.isPressed()) {
                     toastMassage("Kérjük töltse ki az összes információt!");
-            }else{
-                Surname = txtSurname.getText().toString();
-                MiddleName = txtMiddlename.getText().toString();
-                PostNumb = txtPostNumb.getText().toString();
-                City = txtCity.getText().toString();
-                Address = txtAddress.getText().toString();
+                } else {
+                    Surname = txtSurname.getText().toString();
+                    MiddleName = txtMiddlename.getText().toString();
+                    PostNumb = txtPostNumb.getText().toString();
+                    City = txtCity.getText().toString();
+                    Address = txtAddress.getText().toString();
 
-                BDYear = numbYear.getValue();
-                BDMonth = numbMonths.getValue();
-                BDDay = numbDay.getValue();
 
-                if(rbtnMan.isChecked()){
-                    Man = 1;
-                }else if(rbtnWoman.isChecked()){
-                    Woman = 1;
+                    if (rbtnMan.isChecked()) {
+                        Man = 1;
+                    } else if (rbtnWoman.isChecked()) {
+                        Woman = 1;
+                    }
                 }
-            }
-                Intent i = new Intent(RegisterPersonalInfoActivity.this,RegisterLoginInfoActivity.class);
+                Intent i = new Intent(RegisterPersonalInfoActivity.this, RegisterLoginInfoActivity.class);
                 startActivity(i);
             }
         });
@@ -109,4 +113,8 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity {
         Toast.makeText(this,massage,Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+    }
 }

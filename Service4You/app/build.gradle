@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.s4y.service4you"
-        minSdkVersion 14
+        minSdkVersion 24
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
