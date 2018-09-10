@@ -51,8 +51,7 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity   {
     private String City;
     private String Address;
 
-    private int Man = 0;
-    private int Woman = 0;
+    private int Sex = 0;
 
     private Date dBirthday;
 
@@ -73,15 +72,6 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity   {
         bdButton = findViewById(R.id.btn_birthday);
         txtvBirthday = findViewById(R.id.txtv_birthday);
 
-//        bdButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                final DatePickerDialog datePickerDialog = new DatePickerDialog(RegisterPersonalInfoActivity.this, RegisterPersonalInfoActivity.this, 1960, 1, 1);
-//                datePickerDialog.setButton(DatePickerDialog.BUTTON1,"Beállít", datePickerDialog);
-//                datePickerDialog.setButton(DatePickerDialog.BUTTON2,"Mégse",datePickerDialog);
-//                datePickerDialog.show();
-//            }
-//        });
 
         bdButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +83,7 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity   {
         dPDialogListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                txtvBirthday.setText(year+"/"+month+"/"+dayOfMonth);
+                txtvBirthday.setText(year+" / "+month+" / "+dayOfMonth);
                 dBirthday = new Date(year,month,dayOfMonth);
             }
         };
@@ -112,18 +102,19 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity   {
                     City = txtCity.getText().toString();
                     Address = txtAddress.getText().toString();
 
+                    Intent i = new Intent(RegisterPersonalInfoActivity.this, RegisterLoginInfoActivity.class);
+                    startActivity(i);
 
                     if (rbtnMan.isChecked()) {
-                        Man = 1;
+                        Sex = 1;
                     } else if (rbtnWoman.isChecked()) {
-                        Woman = 1;
+                        Sex = 0;
                     }
                 }
-                Intent i = new Intent(RegisterPersonalInfoActivity.this, RegisterLoginInfoActivity.class);
-                startActivity(i);
             }
         });
     }
+
     private void toastMassage(String massage){
         Toast.makeText(this,massage,Toast.LENGTH_SHORT).show();
     }

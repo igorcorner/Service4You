@@ -48,13 +48,15 @@
         app:layout_constraintTop_toBottomOf="@+id/imgCheck" />
 
     <Button
-        android:id="@+id/btnNext"
+        android:id="@+id/btnNextSplash"
         android:layout_width="338dp"
         android:layout_height="57dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
+        android:background="@drawable/button_shape"
         android:text="@string/nextHu"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />

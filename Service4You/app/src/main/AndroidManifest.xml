@@ -9,14 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".SplashScreens.SplashScreenFirstTime"></activity>
-        <activity android:name=".SplashScreens.SplashScreen"></activity>
-        <activity android:name=".Authentication.LoginActivity">
+        <activity android:name=".SplashScreens.SplashScreenFirstTime">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
+        </activity>
+        <activity android:name=".SplashScreens.SplashScreen">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Authentication.LoginActivity">
         </activity>
         <activity android:name=".Authentication.Register.RegisterLoginInfoActivity"></activity>
         <activity android:name=".Authentication.Register.RegisterPersonalInfoActivity"></activity>
