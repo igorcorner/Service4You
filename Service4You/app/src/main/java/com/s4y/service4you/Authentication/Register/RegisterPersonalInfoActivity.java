@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.s4y.service4you.R;
@@ -24,7 +27,7 @@ import java.util.Date;
  * Created by boldi on 2018. 09. 04..
  */
 
-public class RegisterPersonalInfoActivity extends AppCompatActivity  implements DatePickerDialog.OnDateSetListener {
+public class RegisterPersonalInfoActivity extends AppCompatActivity   {
 
     private EditText txtSurname;
     private EditText txtMiddlename;
@@ -32,19 +35,21 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity  implements 
     private EditText txtCity;
     private EditText txtAddress;
 
+    private TextView txtvBirthday;
+
     private RadioGroup rGroup;
     private RadioButton rbtnMan;
     private RadioButton rbtnWoman;
 
     private Button btnNext;
-
     private Button bdButton;
 
+    private DatePickerDialog.OnDateSetListener dPDialogListener;
     private String Surname;
     private String MiddleName;
     private String PostNumb;
     private String City;
-    private String Address;;
+    private String Address;
 
     private int Man = 0;
     private int Woman = 0;
@@ -66,22 +71,32 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity  implements 
         rbtnWoman = findViewById(R.id.rbtn_woman);
         btnNext = findViewById(R.id.btn_next);
         bdButton = findViewById(R.id.btn_birthday);
+        txtvBirthday = findViewById(R.id.txtv_birthday);
+
+//        bdButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final DatePickerDialog datePickerDialog = new DatePickerDialog(RegisterPersonalInfoActivity.this, RegisterPersonalInfoActivity.this, 1960, 1, 1);
+//                datePickerDialog.setButton(DatePickerDialog.BUTTON1,"Beállít", datePickerDialog);
+//                datePickerDialog.setButton(DatePickerDialog.BUTTON2,"Mégse",datePickerDialog);
+//                datePickerDialog.show();
+//            }
+//        });
 
         bdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final DatePickerDialog datePickerDialog = new DatePickerDialog(RegisterPersonalInfoActivity.this, RegisterPersonalInfoActivity.this, 1960, 1, 1);
-                datePickerDialog.setButton(DatePickerDialog.BUTTON_POSITIVE,"Ok", datePickerDialog);
-                datePickerDialog.show();
-                datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        dBirthday = new Date(year, month, dayOfMonth);
-                        datePickerDialog.dismiss();
-                    }
-                });
+                DatePickerDialog dialog = new DatePickerDialog(RegisterPersonalInfoActivity.this, R.style.Theme_AppCompat_DayNight, dPDialogListener, 1970,01,01);
+                dialog.show();
             }
         });
+        dPDialogListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                txtvBirthday.setText(year+"/"+month+"/"+dayOfMonth);
+                dBirthday = new Date(year,month,dayOfMonth);
+            }
+        };
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,8 +128,4 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity  implements 
         Toast.makeText(this,massage,Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-    }
 }
