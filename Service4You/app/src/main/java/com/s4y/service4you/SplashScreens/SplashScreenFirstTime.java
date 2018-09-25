@@ -9,10 +9,11 @@ import android.widget.Button;
 
 import com.s4y.service4you.Authentication.LoginActivity;
 import com.s4y.service4you.LocalDBHelper;
+import com.s4y.service4you.MainActivity;
 import com.s4y.service4you.R;
 
 public class SplashScreenFirstTime extends AppCompatActivity {
-    
+
     private Button btnNext;
 
     private SharedPreferences sharedPreferences;
@@ -43,7 +44,7 @@ public class SplashScreenFirstTime extends AppCompatActivity {
                 }
             });
         }else {
-            Intent i = new Intent(SplashScreenFirstTime.this,SplashScreen.class);
+            Intent i = new Intent(SplashScreenFirstTime.this, LoginActivity.class);
             startActivity(i);
             SplashScreenFirstTime.this.finish();
         }

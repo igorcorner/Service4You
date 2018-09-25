@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -53,7 +54,11 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity   {
 
     private int Sex = 0;
 
-    private Date dBirthday;
+    private int BdYear;
+    private int BdMonth;
+    private int BdDay;
+
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -72,6 +77,8 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity   {
         bdButton = findViewById(R.id.btn_birthday);
         txtvBirthday = findViewById(R.id.txtv_birthday);
 
+        sharedPreferences = getSharedPreferences("PersonalInfoLoginPref",MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
 
         bdButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +91,9 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity   {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 txtvBirthday.setText(year+" / "+month+" / "+dayOfMonth);
-                dBirthday = new Date(year,month,dayOfMonth);
+                BdYear = year;
+                BdMonth = month;
+                BdDay = dayOfMonth;
             }
         };
 
@@ -93,7 +102,7 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity   {
             public void onClick(View v) {
 
                 if (txtSurname.getText().toString().equals("") || txtMiddlename.getText().toString().equals("") ||
-                        txtPostNumb.getText().toString().equals("") || txtCity.getText().toString().equals("") || txtAddress.getText().toString().equals("") || !rGroup.isPressed()) {
+                        txtPostNumb.getText().toString().equals("") || txtCity.getText().toString().equals("") || txtAddress.getText().toString().equals("") ) {
                     toastMassage("Kérjük töltse ki az összes információt!");
                 } else {
                     Surname = txtSurname.getText().toString();
@@ -101,15 +110,21 @@ public class RegisterPersonalInfoActivity extends AppCompatActivity   {
                     PostNumb = txtPostNumb.getText().toString();
                     City = txtCity.getText().toString();
                     Address = txtAddress.getText().toString();
+                    if(rbtnMan.isChecked()){Sex = 1;} else if(rbtnWoman.isChecked()){Sex = 0;}
+                    editor.putString("Surname",Surname);
+                    editor.putString("MiddleName",MiddleName);
+                    editor.putString("PostNumb",PostNumb);
+                    editor.putString("City",City);
+                    editor.putString("Address",Address);
+                    editor.putInt("Sex",Sex);
+                    editor.putInt("BdYear",BdYear);
+                    editor.putInt("BdMonth",BdMonth);
+                    editor.putInt("BdDay",BdDay);
+                    editor.apply();
 
                     Intent i = new Intent(RegisterPersonalInfoActivity.this, RegisterLoginInfoActivity.class);
                     startActivity(i);
 
-                    if (rbtnMan.isChecked()) {
-                        Sex = 1;
-                    } else if (rbtnWoman.isChecked()) {
-                        Sex = 0;
-                    }
                 }
             }
         });

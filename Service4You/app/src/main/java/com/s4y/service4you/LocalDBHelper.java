@@ -17,7 +17,7 @@ public class LocalDBHelper extends SQLiteOpenHelper {
     private static final String TAG = "DatabaseHelper";
 
     private static final String DATABASE_NAME = "Service4You.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private static final String USER_INFO_TABLE = "User_table";
     private static final String USERNAME = "UserName";
@@ -31,6 +31,7 @@ public class LocalDBHelper extends SQLiteOpenHelper {
     private static final String USER_COUNTRY = "Country";
     private static final String USER_BIRTHDAY = "Birthday";
     private static final String USER_SEX = "Sex";
+    private static final String USER_AVATAR = "Avatar";
 
     public LocalDBHelper(Context context) {
         super(context,DATABASE_NAME,null, DATABASE_VERSION);
@@ -39,7 +40,7 @@ public class LocalDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + USER_INFO_TABLE+ "(UserName TEXT,Email TEXT,Password TEXT,Surname TEXT,MiddleName TEXT,PostNumber TEXT,City TEXT,Address TEXT," +
-                "Country TEXT,Birthday TEXT,Sex INTEGER,FirtLogin INTEGER)");
+                "Country TEXT,Birthday TEXT,Sex INTEGER,FirtLogin INTEGER,Avatar INTEGER )");
     }
 
     public boolean addUser (User user){
@@ -56,6 +57,7 @@ public class LocalDBHelper extends SQLiteOpenHelper {
         contentValuesU.put(USER_COUNTRY, user.getCountry());
         contentValuesU.put(USER_BIRTHDAY, user.getBirthday());
         contentValuesU.put(USER_SEX, user.getSex());
+        contentValuesU.put(USER_AVATAR, user.getAvatar());
         long UserResult = db.insert(USER_INFO_TABLE,null,contentValuesU);
         return UserResult !=1 ;
     }

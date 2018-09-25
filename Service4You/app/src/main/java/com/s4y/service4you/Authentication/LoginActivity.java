@@ -1,6 +1,7 @@
 package com.s4y.service4you.Authentication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private String Email;
     private String Password;
 
+    private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,9 @@ public class LoginActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.btn_register1);
         btnFacebook = findViewById(R.id.imgbtn_facebook);
 
+        sharedPreferences = getSharedPreferences("Login",MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("UserName",Email);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +54,9 @@ public class LoginActivity extends AppCompatActivity {
                 }else {
                     Email = txtEmial.getText().toString();
                     Password = txtPassword.getText().toString();
-
+                    editor.putString("UserName",Email);
+                    editor.putString("Password",Password);
+                    editor.apply();
                     Intent i = new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(i);
                 }

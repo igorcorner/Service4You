@@ -17,6 +17,16 @@ public class User {
     private String Country;
     private String Sex;
 
+    public int getAvatar() {
+        return Avatar;
+    }
+
+    public void setAvatar(int avatar) {
+        Avatar = avatar;
+    }
+
+    private int Avatar;
+
     public String getUserName() {
         return UserName;
     }
@@ -27,6 +37,7 @@ public class User {
     public void setBirthday(String birthday) {
         Birthday = birthday;
     }
+
     public void setUserName(String userName) {
         UserName = userName;
     }
