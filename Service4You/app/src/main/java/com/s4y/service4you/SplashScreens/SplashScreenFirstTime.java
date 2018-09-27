@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.s4y.service4you.Authentication.LoginActivity;
-import com.s4y.service4you.LocalDBHelper;
-import com.s4y.service4you.MainActivity;
 import com.s4y.service4you.R;
 
 public class SplashScreenFirstTime extends AppCompatActivity {

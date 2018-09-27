@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.s4y.service4you.Authentication.Register.RegisterPersonalInfoActivity;
-import com.s4y.service4you.MainActivity;
+import com.s4y.service4you.Activities.MainActivity;
 import com.s4y.service4you.R;
 
 /**
@@ -71,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
     private void toastMassage(String massage){
         Toast.makeText(this,massage,Toast.LENGTH_SHORT).show();
     }

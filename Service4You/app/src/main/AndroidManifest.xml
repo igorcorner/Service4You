@@ -12,24 +12,28 @@
         <activity android:name=".SplashScreens.SplashScreenFirstTime">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
         <activity android:name=".SplashScreens.SplashScreen">
             <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".Authentication.LoginActivity">
-        </activity>
-        <activity android:name=".Authentication.Register.RegisterLoginInfoActivity"></activity>
-        <activity android:name=".Authentication.Register.RegisterPersonalInfoActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Authentication.LoginActivity" />
+        <activity android:name=".Authentication.Register.RegisterLoginInfoActivity" />
+        <activity android:name=".Authentication.Register.RegisterPersonalInfoActivity" />
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".Activities.EditProfileAvtivity" />
+        <activity android:name=".Activities.HistoryActivity" />
+        <activity android:name=".Activities.DiscountDetailsActivity"></activity>
     </application>
 
 </manifest>

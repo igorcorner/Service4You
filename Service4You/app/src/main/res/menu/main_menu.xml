@@ -6,7 +6,8 @@
     <item
         android:id="@+id/edit_porfile"
         android:title="Profil Átírás"
-        android:icon="@mipmap/img_avatar2"/>
+        android:icon="@mipmap/img_avatar2"
+        />
     <item
         android:id="@+id/history"
         android:title="Elöző ajánlatok"
