@@ -12,6 +12,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.VideoView;
 import com.s4y.service4you.R;
 /**
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private DrawerLayout mDrawerLayout;
     private NavigationView navView;
+    private Button btnDetails;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         navView = findViewById(R.id.navcigation_view);
+        btnDetails = findViewById(R.id.btn_details);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
@@ -42,6 +46,13 @@ public class MainActivity extends AppCompatActivity implements
             navView.setNavigationItemSelectedListener(this);
         }
 
+        btnDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,DiscountDetailsActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -54,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements
         }
         return super.onOptionsItemSelected(item);
     }
-    
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -65,7 +76,8 @@ public class MainActivity extends AppCompatActivity implements
             Intent i = new Intent(MainActivity.this,HistoryActivity.class);
             startActivity(i);
         }else if (id == R.id.new_offer){
-
+            Intent i = new Intent(MainActivity.this,DiscountDetailsActivity.class);
+            startActivity(i);
         }else if (id == R.id.logout){
 
         }

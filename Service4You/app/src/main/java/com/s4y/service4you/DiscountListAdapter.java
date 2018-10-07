@@ -49,10 +49,10 @@ public class DiscountListAdapter extends ArrayAdapter<Discount> {
             imgHotel = convertView.findViewById(R.id.img_discounrtHotel);
         }
         String Title_ = getItem(position).getTitle();
-        String Period_ = getItem(position).getStartDate().getDay()+"/"+getItem(position).getStartDate().getMonth()+"/"+getItem(position).getStartDate().getYear()+"-tól "+
-                getItem(position).getEndDate().getDay()+"/"+getItem(position).getEndDate().getMonth()+"/"+getItem(position).getEndDate().getYear()+"-ig ";
+//        String Period_ = getItem(position).getStartDate().getDay()+"/"+getItem(position).getStartDate().getMonth()+"/"+getItem(position).getStartDate().getYear()+"-tól "+
+//                getItem(position).getEndDate().getDay()+"/"+getItem(position).getEndDate().getMonth()+"/"+getItem(position).getEndDate().getYear()+"-ig ";
         txtTitle.setText(Title_);
-        txtPeroid.setText(Period_);
+//        txtPeroid.setText(Period_);
         imgHotel.setImageResource(R.drawable.hoteleto);
         return convertView;
     }
