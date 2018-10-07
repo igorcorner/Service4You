@@ -42,6 +42,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/Dtitle"
         android:textSize="22dp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
@@ -57,6 +58,7 @@
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="16dp"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title"
         tools:text="Az Ön Személyes Promóciós Kódja" />
@@ -70,6 +72,7 @@
         android:layout_marginEnd="8dp"
         android:text="TextView"
         android:textSize="16dp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -84,6 +87,7 @@
         android:layout_marginStart="16dp"
         android:text="TextView"
         android:textSize="16dp"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_code"
         tools:text="Az Akcio Elérhető:" />
@@ -96,6 +100,7 @@
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="16dp"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_datetext" />
 
@@ -107,6 +112,7 @@
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="16dp"
+        android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/txt_startDate"
         app:layout_constraintTop_toBottomOf="@+id/txt_datetext" />
 
@@ -120,6 +126,7 @@
         android:layout_marginBottom="4dp"
         android:text="@string/Dmassage"
         android:textSize="16dp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
